@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-display-loaded), Arial, sans-serif;
+  --font-body: var(--font-body-loaded), Arial, sans-serif;
+  --font-mono: var(--font-mono-loaded), monospace;
+
+  --color-jp-ink: #0a0a0a;
+  --color-jp-paper: #fafaf7;
+  --color-jp-green: #2e9a48;
+  --color-jp-green-dim: #1f7a38;
+  --color-jp-green-deep: #123322;
+  --color-jp-green-tint: #eaf5ec;
+  --color-jp-amber: #f5b301;
+  --color-jp-line: rgba(10, 10, 10, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-image:
+    linear-gradient(rgba(10, 10, 10, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 10, 10, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.trace-pulse {
+  animation: tracePulse 3.2s linear infinite;
+  opacity: 0.85;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.grecaptcha-badge { 
+  visibility: hidden !important; 
+}

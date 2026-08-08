@@ -1,0 +1,43 @@
+<svg
+  width="40"
+  height="44"
+  viewBox="0 0 200 220"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle cx="100" cy="118" r="86" fill="#2e9a48" />
+  <circle
+    cx="100"
+    cy="118"
+    r="74"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="4"
+  />
+
+  <g transform="translate(10,-26) scale(0.95,0.75)">
+    <path
+      d="M112 32 L80 104 L98 108 L90 160 L134 96 L106 92 Z"
+      fill="#ffffff"
+    />
+  </g>
+
+  <path
+    d="
+      M72 100
+      H120
+      V116
+      H100
+      V178
+      C100 196 88 208 68 208
+      C56 208 46 204 39 197
+      L51 180
+      C56 185 61 188 67 188
+      C76 188 82 182 82 172
+      V116
+      H72
+      Z
+    "
+    fill="#ffffff"
+  />
+</svg>
