@@ -78,7 +78,7 @@ export default function Hero() {
                 View Capabilities <ArrowRight size={15} />
               </a>
               <a href="#note" className="inline-flex items-center gap-2 border border-white/30 text-white font-mono text-[13px] tracking-[0.08em] uppercase px-6 py-3.5 hover:border-jp-green hover:text-jp-green transition-colors">
-                Founder's Note
+                Founder&lsquo;s Note
               </a>
             </div>
           </HeroReveal>

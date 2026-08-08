@@ -1,13 +1,10 @@
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { PROJECTS } from '@/data/projects';
 import { Gallery } from '@/app/components/gallery';
+import Link from 'next/link';
 import Image from 'next/image';
 
-export function generateStaticParams() {
-  return PROJECTS.map((p) => ({ slug: p.slug }));
-}
 export async function generateMetadata({ params }: {
   params: Promise<{ slug: string }>
 }) {
@@ -16,7 +13,7 @@ export async function generateMetadata({ params }: {
   if (!project) return {};
   return {
     title: `${project.title} \u2014 J Power Solutions`,
-    description: project.summary,
+    description: project.description,
   };
 }
 

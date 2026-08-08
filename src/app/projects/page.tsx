@@ -37,7 +37,7 @@ export default function ProjectsPage() {
               src={p.coverImage}
               alt={p.title}
               fill
-              className="object-cover"
+              className="object-cover group-hover:scale-110 transition-transform duration-300"
               />
             </div>
             <div className="p-6">

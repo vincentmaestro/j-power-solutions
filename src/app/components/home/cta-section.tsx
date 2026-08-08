@@ -16,10 +16,10 @@ export default function CTA() {
       <div className="max-w-6xl lg:max-w-5xl v mx-auto text-center px-10 py-16 md:py-24 border-t border-black/10">
         <Reveal>
           <p className="font-display font-medium text-black/80 leading-snug italic">
-            "Whether it's powering rural communities through solar infrastructure—including solar-powered boreholes, street lighting, mini-grids, and rural electrification—or delivering dependable electrical and solar solutions for homes, schools, hotels, and commercial facilities, we execute every project to the highest standards of safety, quality, and professionalism.
+            &ldquo;Whether it&lsquo;s powering rural communities through solar infrastructure—including solar-powered boreholes, street lighting, mini-grids, and rural electrification—or delivering dependable electrical and solar solutions for homes, schools, hotels, and commercial facilities, we execute every project to the highest standards of safety, quality, and professionalism.
             <br />
             <br />
-            Choosing us means partnering with a team committed to long-term service, reliability, and trust. Backed by years of experience and industry best practices, we deliver solutions engineered for lasting performance and dependable results."
+            Choosing us means partnering with a team committed to long-term service, reliability, and trust. Backed by years of experience and industry best practices, we deliver solutions engineered for lasting performance and dependable results.&rdquo;
           </p>
           <br />
           <div className="mt-6 font-mono text-[12px] tracking-widest uppercase text-black/50">
