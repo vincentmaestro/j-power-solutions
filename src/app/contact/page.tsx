@@ -2,7 +2,7 @@ import { Mail, Phone, Clock } from 'lucide-react';
 import ContactForm from '../components/contact-form';
 
 export const metadata = {
-  title: 'Contact \u2014 J Power Solutions',
+  title: 'Contact',
   description:
     'Get in touch for solar, electrical, and mini-grid projects \u2014 residential, commercial, or community scale.',
 };

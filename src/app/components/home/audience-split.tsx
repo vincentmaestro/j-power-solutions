@@ -16,7 +16,6 @@ const AUDIENCES = [
       'NEMSA-compliant wiring and quality assurance',
       'Workmanship warranty on every install',
     ],
-    cta: 'Get a Home Quote',
   },
   {
     icon: Building2,
@@ -30,7 +29,6 @@ const AUDIENCES = [
       'Smart metering rollouts at scale',
       'Scheduled maintenance contracts',
     ],
-    cta: 'Talk to Our Engineers',
   },
 ];
 
@@ -71,10 +69,6 @@ export default function AudienceSplit() {
                   </li>
                 ))}
               </ul>
-
-              <a href="#contact" className="mt-8 inline-flex items-center gap-2 self-start font-body text-[14px] font-medium text-jp-ink hover:text-jp-green transition-colors">
-                {a.cta} <ArrowRight size={15} />
-              </a>
             </motion.div>
           ))}
         </motion.div>

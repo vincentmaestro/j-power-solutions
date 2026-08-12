@@ -171,7 +171,7 @@ export function DrawSetupDiagram() {
       <motion.line {...groups.angle} x1="220" y1="360" x2="366.5" y2="252.4" stroke={INK} strokeWidth="2" />
       <motion.path {...groups.angle} d="M 270.0 300.0 A 50 50 0 0 0 267.6 284.5" stroke={INK} strokeWidth="1" fill="none" />
       <motion.line {...groups.angle} x1="220" y1="300" x2="290" y2="300" stroke={INK} strokeWidth="1" strokeDasharray="3 3" />
-      <motion.text {...label(1.9)} x="298" y="294" fontFamily="var(--font-mono)" fontSize="13" fill={INK}>TILT 18&#176;</motion.text>
+      <motion.text {...label(1.9)} x="298" y="294" fontFamily="var(--font-mono)" fontSize="13" fill={INK}>TILT</motion.text>
 
       {/* wire + inverter */}
       <motion.path {...groups.wire} d="M 220 400 C 220 430, 400 400, 420 390" stroke={GREEN} strokeWidth="2.5" fill="none" />

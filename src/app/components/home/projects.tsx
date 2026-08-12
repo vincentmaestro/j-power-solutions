@@ -6,9 +6,12 @@ import Image from 'next/image';
 import { Reveal } from '@/app/components/reveal';
 import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import { PROJECTS } from '@/data/projects';
+import { SanityDocument } from 'next-sanity';
+import { urlFor } from '@/sanity';
 
-export default function Projects() {
+export default function Projects({ projects }: {
+  projects: SanityDocument[]
+}) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const springX = useSpring(x, { stiffness: 300, damping: 30 });
@@ -38,7 +41,7 @@ export default function Projects() {
         </div>
 
         <div className="mt-12 border-t border-black/15">
-          {PROJECTS.map((w, i) => (
+          {projects.map((w, i) => (
             <Link
               key={Number(`0${i+1}`)}
               href={`/projects/${w.slug}`}
@@ -66,7 +69,7 @@ export default function Projects() {
               style={{ x: springX, y: springY }}
               className="pointer-events-none absolute top-0 left-0 w-55 h-37.5 border border-black/20 overflow-hidden z-10 hidden md:block"
             >
-              <Image src={PROJECTS[hovered].coverImage} alt={PROJECTS[hovered].title}  fill sizes="220px" className="object-cover" />
+              <Image src={urlFor(projects[hovered].coverImage).url()} alt={projects[hovered].title}  fill sizes="220px" className="object-cover" />
             </motion.div>
           )}
         </AnimatePresence>

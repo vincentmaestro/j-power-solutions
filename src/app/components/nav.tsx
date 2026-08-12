@@ -5,10 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: 'Capabilities', href: '/#capabilities' },
-  { label: 'projects', href: '/projects' },
+  { label: 'Projects', href: '/projects' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -33,8 +34,8 @@ export default function Nav() {
     }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5">
-          <img src='/logo.svg' alt='Logo' />
+        <Link href="/" className="flex items-center">
+          <Image src='/logo-1.svg' alt='Logo' width={45} height={12} />
           <span className="font-display font-black text-[15px] tracking-wide text-jp-green">
             POWER
             <br />
@@ -52,9 +53,9 @@ export default function Nav() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <Link href="#contact" className="hidden sm:inline-block font-mono text-[12px] tracking-widest uppercase bg-jp-green text-white px-4 py-2 hover:bg-jp-green-dim transition-colors">
-            Request Quote
-          </Link>
+          {/* <button className="hidden sm:inline-block font-mono text-[12px] tracking-widest uppercase bg-jp-green text-white px-4 py-2 hover:bg-jp-green-dim transition-colors">
+            Toggle Theme
+          </button> */}
           <button
             onClick={() => setOpen((v) => !v)}
             className="md:hidden p-2 -mr-2 text-black"
@@ -86,13 +87,12 @@ export default function Nav() {
                   {l.label}
                 </Link>
               ))}
-              <Link
-                href="#contact"
+              {/* <button
                 onClick={() => setOpen(false)}
                 className="sm:hidden font-mono text-[12px] tracking-widest uppercase bg-jp-green text-white px-4 py-2.5 text-center"
               >
-                Request Quote
-              </Link>
+                Toggle Theme
+              </button> */}
             </div>
           </motion.div>
         )}

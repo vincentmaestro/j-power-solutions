@@ -2,15 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { HeroReveal } from "../reveal";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-
-const HERO_SLIDES = [
-  { src: '/images/hero-1.avif', alt: 'Technician installing rooftop solar panels' },
-  { src: '/images/hero-3.jpg', alt: 'Electrician wiring an inverter panel' },
-  { src: '/images/hero-4.png', alt: 'Mini grid site' },
-];
+import { SanityDocument } from "next-sanity";
+import { urlFor } from "@/sanity";
 
 function HeroSlide({ src, alt, active }: { src: string; alt: string; active: boolean }) {
   return (
@@ -31,28 +27,32 @@ function HeroSlide({ src, alt, active }: { src: string; alt: string; active: boo
   );
 }
 
-function HeroBackground() {
+function HeroBackground({ slides }: {
+  slides: SanityDocument[]
+}) {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setActive((v) => (v + 1) % HERO_SLIDES.length), 6000);
+    const id = setInterval(() => setActive((v) => (v + 1) % slides.length), 6000);
     return () => clearInterval(id);
   }, []);
 
   return (
     <div className="absolute inset-0">
-      {HERO_SLIDES.map((slide, i) => (
-        <HeroSlide key={slide.src} src={slide.src} alt={slide.alt} active={i === active} />
+      {slides.map((slide, i) => (
+        <HeroSlide key={i} src={urlFor(slide.image).url()} alt={slide.title} active={i === active} />
       ))}
       <div className="absolute inset-0 bg-linear-to-r from-black/75 via-black/55 to-black/30" />
     </div>
   );
 }
 
-export default function Hero() {
+export default function Hero({ heroSlides }: {
+  heroSlides: SanityDocument[]
+}) {
   return (
     <section className="relative min-h-svh flex items-center overflow-hidden">
-      <HeroBackground />
+      <HeroBackground slides={heroSlides} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         <div className="max-w-4xl">

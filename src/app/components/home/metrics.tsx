@@ -2,7 +2,7 @@ import { Reveal } from '@/app/components/reveal';
 
 const METRICS = [
   { value: '6+', label: 'States served' },
-  { value: '1.3MW', label: 'Cumulative installed capacity' },
+  { value: '1.1MW', label: 'Cumulative installed capacity' },
   { value: '24/7', label: 'Availability for support and maintenance' },
 ];
 

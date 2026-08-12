@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { BASE_URL } from "./sitemap";
 
 export default function robots(): MetadataRoute.Robots {
     return {
@@ -9,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
                 disallow: ['/api/', '/_next/']
             }
         ],
-        sitemap: 'https://j-power.com/sitemap.xml'
+        sitemap: `https://${BASE_URL}/sitemap.xml`
     }
 }

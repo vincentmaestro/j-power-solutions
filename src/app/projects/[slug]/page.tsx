@@ -1,18 +1,22 @@
+import { getProjectById } from '@/sanity/queries';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
-import { PROJECTS } from '@/data/projects';
+import { VideoPlayer } from '@/app/components/mux-video-player';
 import { Gallery } from '@/app/components/gallery';
-import Link from 'next/link';
+import { urlFor } from '@/sanity';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export async function generateMetadata({ params }: {
   params: Promise<{ slug: string }>
 }) {
   const currentMetaData = (await params).slug
-  const project = PROJECTS.find(p => p.slug === currentMetaData);
+  const project = await getProjectById(currentMetaData);
+
   if (!project) return {};
+
   return {
-    title: `${project.title} \u2014 J Power Solutions`,
+    title: `\u2014 ${project.title}`,
     description: project.description,
   };
 }
@@ -20,8 +24,9 @@ export async function generateMetadata({ params }: {
 export default async function ProjectPage({ params }: {
   params: Promise<{ slug: string }>
 }) {
-  const currentSlug = (await params).slug
-  const project = PROJECTS.find(p => p.slug === currentSlug);
+  const currentSlug = (await params).slug;
+  const project = await getProjectById(currentSlug);
+
   if (!project) notFound();
 
   return (
@@ -45,17 +50,24 @@ export default async function ProjectPage({ params }: {
         </p>
       </div>
 
-      <div className="relative h-72 md:h-105 mt-12 border border-black/10">
-        <Image
-        src={project.coverImage}
-        alt={project.title}
-        fill
-        sizes="(min-width: 768px) 900px, 100vw"
-        className="object-cover"
-        />
-      </div>
+      {project.video 
+      ? (
+        <div className="relative my-10 md:mt-15 md:mb-45 md:h-105 border border-black/10">
+          <VideoPlayer video={project.video} />
+        </div>
+      ) : (
+        <div className="relative h-72 md:h-105 my-10 border border-black/10 group overflow-hidden">
+          <Image
+          src={urlFor(project.coverImage).url()}
+          alt={project.title}
+          fill
+          sizes="(min-width: 768px) 900px, 100vw"
+          className="object-cover group-hover:scale-110 transition-transform duration-800"
+          />
+        </div>
+      )}
 
-      <Gallery images={project.gallery} title={project.title} />
+      <Gallery images={project.images.map(img => ({ imageUrl: urlFor(img.asset).url(), caption: img.caption }))} title={project.title} />
     </main>
   );
 }

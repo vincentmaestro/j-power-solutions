@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Phone, Mail } from 'lucide-react';
 
@@ -7,8 +8,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto py-16 px-6">
         <div className="grid md:grid-cols-3 gap-10">
           <div>
-            <div className="flex items-center gap-2.5">
-              <img src='/logo.svg' alt='Logo' />
+            <div className="flex items-center gap-0.5">
+              <Image src='/logo-1.svg' alt='Logo' width={45} height={12} />
               <span className="font-display font-black text-[15px] tracking-wide text-jp-green">
                 POWER
                 <br />
@@ -24,7 +25,6 @@ export default function Footer() {
           <div>
             <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-jp-green-dim">Index</span>
             <div className="flex flex-col gap-2.5 mt-4">
-              <Link href='#capabilities' className="font-body text-[13.5px] text-black/60 hover:text-jp-green transition-colors">Capabilities</Link>
               <Link href='/projects' className="font-body text-[13.5px] text-black/60 hover:text-jp-green transition-colors">Projects</Link>
               <Link href='/contact' className="font-body text-[13.5px] text-black/60 hover:text-jp-green transition-colors">Contact</Link>
             </div>
