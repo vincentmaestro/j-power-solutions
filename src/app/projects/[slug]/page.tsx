@@ -1,4 +1,4 @@
-import { getProjectById } from '@/sanity/queries';
+import { getProjectBySlug } from '@/sanity/queries';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { VideoPlayer } from '@/app/components/mux-video-player';
@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: {
   params: Promise<{ slug: string }>
 }) {
   const currentMetaData = (await params).slug
-  const project = await getProjectById(currentMetaData);
+  const project = await getProjectBySlug(currentMetaData);
 
   if (!project) return {};
 
@@ -25,7 +25,7 @@ export default async function ProjectPage({ params }: {
   params: Promise<{ slug: string }>
 }) {
   const currentSlug = (await params).slug;
-  const project = await getProjectById(currentSlug);
+  const project = await getProjectBySlug(currentSlug);
 
   if (!project) notFound();
 

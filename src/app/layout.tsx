@@ -1,8 +1,9 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Archivo, Inter, IBM_Plex_Mono } from "next/font/google";
 import Nav from "@/app/components/nav";
 import Footer from "@/app/components/footer";
-import "./globals.css";
+import { SanityLive } from "@/sanity/live";
 
 const archivo = Archivo({ subsets: ["latin"], weight: ["500", "700", "900"], variable: "--font-display" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
@@ -27,6 +28,7 @@ export default function RootLayout({
         <Nav />
         {children}
         <Footer />
+        <SanityLive />
       </body>
     </html>
   );

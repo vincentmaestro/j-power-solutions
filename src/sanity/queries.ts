@@ -1,5 +1,5 @@
+import { sanityFetch } from "./live";
 import { SanityImageAssetDocument } from "next-sanity";
-import { client } from ".";
 import { SanityDocument } from "sanity";
 
 export async function getHeroImages() {
@@ -9,18 +9,11 @@ export async function getHeroImages() {
         image
         }`;
 
-    return await client.fetch<SanityDocument[]>(
-        queryHeroimages,
-        {},
-        {
-            next: {
-                revalidate: 1
-            }
-        }
-    );
+    const { data } = await sanityFetch({ query: queryHeroimages });
+    return data;
 }
 
-interface ProjectDetails extends SanityDocument {
+export interface ProjectDetails extends SanityDocument {
     slug: string;
     title: string;
     location: string;
@@ -42,15 +35,8 @@ export async function getProjects(start: number, end: number) {
         coverImage
     }`;
     
-    return await client.fetch<ProjectDetails[]>(
-        projectsQuery,
-        {},
-        {
-            next: {
-                revalidate: 1
-            }
-        }
-    );
+    const { data } = await sanityFetch({ query: projectsQuery });
+    return data;
 }
 
 export async function countProjects() {
@@ -58,10 +44,11 @@ export async function countProjects() {
         _type == "project" && defined(slug.current)
     ])`;
 
-    return client.fetch<number>(countProjectsQuery);
+    const { data } = await sanityFetch({ query: countProjectsQuery });
+    return data;
 }
 
-interface FullProjectDetails extends SanityDocument {
+export interface FullProjectDetails extends SanityDocument {
     title: string;
     location: string;
     category: string;
@@ -74,7 +61,7 @@ interface FullProjectDetails extends SanityDocument {
     video: any
 }
 
-export async function getProjectById(projectId: string) {
+export async function getProjectBySlug(slug: string) {
     const projectQuery = `*[
         _type == "project"
         && slug.current == $slug
@@ -102,8 +89,9 @@ export async function getProjectById(projectId: string) {
         }
     }`;
 
-    return await client.fetch<FullProjectDetails>(
-        projectQuery,
-        { slug: projectId }
-    );
+    const { data } = await sanityFetch({
+        query: projectQuery,
+        params: { slug }
+    });
+    return data;
 }
