@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Check, Building2, HomeIcon } from 'lucide-react';
+import { Check, Building2, HomeIcon } from 'lucide-react';
 import { Reveal } from '../reveal';
 
 const AUDIENCES = [

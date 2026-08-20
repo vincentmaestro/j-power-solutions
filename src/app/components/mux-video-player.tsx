@@ -1,6 +1,12 @@
 import MuxPlayer from '@mux/mux-player-react';
 
-export function VideoPlayer({ video }: { video: any }) {
+type SanityVideo = {
+  asset?: {
+    playbackId?: string
+  }
+}
+
+export function VideoPlayer({ video }: { video: SanityVideo }) {
   const playbackId = video?.asset?.playbackId
 
   if (!playbackId) return null

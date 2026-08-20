@@ -55,10 +55,20 @@ export interface FullProjectDetails extends SanityDocument {
     description: string;
     coverImage: SanityImageAssetDocument;
     images: {
-        asset: SanityImageAssetDocument,
-        caption?: string
-    }[],
-    video: any
+        asset: SanityImageAssetDocument;
+        caption?: string;
+    }[];
+    video?: {
+        asset?: {
+            playbackId?: string;
+            assetId?: string;
+            status?: string;
+            data?: {
+                duration?: number;
+                aspect_ratio?: number;
+            };
+        };
+    };
 }
 
 export async function getProjectBySlug(slug: string): Promise<FullProjectDetails> {
