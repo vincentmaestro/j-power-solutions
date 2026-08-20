@@ -22,7 +22,7 @@ export interface ProjectDetails extends SanityDocument {
     coverImage: SanityImageAssetDocument;
 }
 
-export async function getProjects(start: number, end: number) {
+export async function getProjects(start: number, end: number): Promise<ProjectDetails[]> {
     const projectsQuery = `*[
         _type == "project" && defined(slug.current)]
         | order(_createdAt desc)
@@ -61,7 +61,7 @@ export interface FullProjectDetails extends SanityDocument {
     video: any
 }
 
-export async function getProjectBySlug(slug: string) {
+export async function getProjectBySlug(slug: string): Promise<FullProjectDetails> {
     const projectQuery = `*[
         _type == "project"
         && slug.current == $slug

@@ -3,4 +3,5 @@ import { client } from ".";
 
 export const { sanityFetch, SanityLive } = defineLive({
   client,
+  browserToken: false
 });
