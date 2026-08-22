@@ -58,10 +58,10 @@ export default function Hero({ heroSlides }: {
         <div className="max-w-4xl">
           <HeroReveal delay={0.1}>
             <h1 className="font-display font-black text-white leading-[0.92] tracking-tight">
-              <span className="text-[15vw] sm:text-[70px]">ELECTRICAL POWER</span>
+              <span className="text-[13vw] sm:text-[70px]">ELECTRICAL POWER</span>
               <br />
-              <span className="relative inline-block text-jp-green z-0 text-[15vw] sm:text-[68px] md:text-[80px]">
-                <span className="absolute inset-x-0 bottom-1 h-4 bg-jp-amber/50 -z-10" />
+              <span className="relative inline-block text-jp-green z-0 text-[12vw] sm:text-[68px] md:text-[80px]">
+                <span className="absolute inset-x-0 bottom-1 h-2 sm:h-4 bg-jp-amber/50 -z-10" />
                 ENGINEERED.
               </span>
             </h1>
